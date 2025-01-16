@@ -1,0 +1,22 @@
+[package]
+name = "shellrk"
+version = "0.1.0"
+edition = "2021"
+repository = "https://github.com/taldoflemis/shellrk"
+authors = ["Said Rodrigues <coderflemis@gmail.com>"]
+readme = "README.md"
+
+[profile.release]
+codegen-units = 1
+panic = "abort"
+lto = true
+
+[profile.bench-profile]
+inherits = "release"
+debug = true
+
+[profile.dist]
+inherits = "release"
+lto = "thin"
+
+[dependencies]
